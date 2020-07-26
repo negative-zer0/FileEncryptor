@@ -19,14 +19,14 @@ public class JavaEncryptor implements IEncryptor
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         switch (type) {
             case ENCRYPT:
-                final DeflaterOutputStream deflaterInputStream = new DeflaterOutputStream(byteArrayOutputStream);
-                deflaterInputStream.write(bytes);
-                deflaterInputStream.close();
+                try (final DeflaterOutputStream deflaterInputStream = new DeflaterOutputStream(byteArrayOutputStream)) {
+                    deflaterInputStream.write(bytes);
+                }
                 break;
             case DECRYPT:
-                final InflaterOutputStream inflaterOutputStream = new InflaterOutputStream(byteArrayOutputStream);
-                inflaterOutputStream.write(bytes);
-                inflaterOutputStream.close();
+                try (final InflaterOutputStream inflaterOutputStream = new InflaterOutputStream(byteArrayOutputStream)) {
+                    inflaterOutputStream.write(bytes);
+                }
                 break;
         }
 
