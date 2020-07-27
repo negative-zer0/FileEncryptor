@@ -9,8 +9,18 @@ import javax.crypto.Cipher;
 
 public enum SecretType
 {
-    ENCRYPT,
-    DECRYPT;
+    ENCRYPT(Cipher.ENCRYPT_MODE),
+    DECRYPT(Cipher.DECRYPT_MODE);
+
+    private final int id;
+
+    SecretType(final int mode) {
+        id = mode;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public static int of(final SecretType type) {
         switch (type) {

@@ -3,7 +3,6 @@ package net.unix.encryptor.encrypt;
 import net.unix.encryptor.api.encrypt.IEncryptor;
 import net.unix.encryptor.api.encrypt.SecretType;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.InflaterOutputStream;
 
@@ -15,7 +14,7 @@ import java.util.zip.InflaterOutputStream;
 public class JavaEncryptor implements IEncryptor
 {
     @Override
-    public byte[] done(final byte[] bytes, final SecretType type) throws IOException {
+    public byte[] done(final byte[] bytes, final SecretType type) throws Throwable {
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         switch (type) {
             case ENCRYPT:

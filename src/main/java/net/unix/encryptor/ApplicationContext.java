@@ -2,7 +2,6 @@ package net.unix.encryptor;
 
 import net.unix.encryptor.api.encrypt.SecretType;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * @author Unix
@@ -11,8 +10,8 @@ import java.io.IOException;
 
 public class ApplicationContext
 {
-    public static void main(final String... args) throws IOException {
+    public static void main(final String... args) throws Throwable {
         new FileEncryptor()
-                .onStart(new File("test.png"), SecretType.ENCRYPT);
+                .onStart(new File("ENCRYPTED-test.png"), SecretType.DECRYPT);
     }
 }
